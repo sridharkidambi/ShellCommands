@@ -3,6 +3,10 @@
 set -x #command line to print the execution in verbose
 set -e //exit on error code 1
 pwd
+echo $LINENO
+echo $BASH_SOURCE
+
+PS4='+ $BASH_SOURCE  :$LINENO: '
 # receive an input
 read  -p "enter your name: " MYNAMEIS
 echo $MYNAMEIS
@@ -20,7 +24,7 @@ elif [[ "2" = "2" ]]; then
 fi
 ls -latr
 NAME='SHREYAS'
-
+set +ex #stop printing output.
 # grep sk a.sh | while [[ read LINE ]]; do
 #  echo $LINE
 # done
@@ -66,7 +70,7 @@ elif [[ $RETURNCODE -eq "0" ]]; then
     echo $RETURNCODE
 fi
 
-mkdir sktest && mkdir sktest/test1
+mkdir sktest && mkdir sktest/test1 # &&/|| passes the return status code of 1st execution to the the next
 
 function Hello() {
 for NAME in $@
@@ -75,8 +79,8 @@ do
 done
 }
 
- Hello Sridhar-Kidambi shakunthala-devi ramanujam-mathematican
- echo $?
+ Hello Sridhar-Kidambi shakunthala-devi ramanujam-mathematican #calling a method from a shell script.
+ echo $? #get the status
 
  ls a*.txt
  ls*.???
@@ -122,3 +126,13 @@ logger -s -i -t SK  -p local0.info "Message me Sridhar Kidambi1"
    echo "My Index number is : "$INDEX;
   ((INDEX++))
  done
+
+ DEBUG="echo";
+ $DEBUG pwd
+ $DEBUG=false
+ $DEBUG || echo "I am off"
+ if [[ $DEBUG ]]; then
+  echo "Debug is one"
+else
+echo "Debug is off"
+ fi
