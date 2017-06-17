@@ -1,10 +1,12 @@
 #!/bin/bash-x
 
-set -x
+set -x #command line to print the execution in verbose
+set -e //exit on error code 1
 pwd
+# receive an input
 read  -p "enter your name: " MYNAMEIS
 echo $MYNAMEIS
-if [[ "1" = "2" ]]; then
+if [[ "1" = "2" ]]; then #sample if else condition
   echo '${MYNAMEIS} has tested'
   MY_SHELL="sjdkjndfkjn"
   SERV_NM=${hostname}

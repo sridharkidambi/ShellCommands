@@ -1,0 +1,4 @@
+  echo 'sridhar kidambi has tested1'
+echo "sridhar kidambi has tested${i}"
+MY_SON=$(grep -icv sridhar $(ls -d SHREY*/Persona*/*.*) )
+ Hello Sridhar-Kidambi shakunthala-devi ramanujam-mathematican
