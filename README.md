@@ -18,3 +18,8 @@ nc -zv ip port
 z-send 0 bytes and v verbose.
 
 Cheetsheet: https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf
+
+
+$? Stores the exit value of the last command that was executed.
+
+
